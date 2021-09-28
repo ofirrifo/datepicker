@@ -38,10 +38,10 @@ export class DpDaysComponent implements OnInit, OnDestroy {
 
   private initDays(): void {
     const {disableDays, currentViewDate, selected} = this.dpStateService.getState();
-    const date = selected ? selected : currentViewDate;
-    const days = DaysUtils.getDays(disableDays, date);
+    const _currentViewDate = selected ? selected : currentViewDate;
+    const days = DaysUtils.getDays(disableDays, _currentViewDate);
     this.dpStateService.setDays(days);
-    this.dpStateService.setCurrentView(date);
+    this.dpStateService.setCurrentView(_currentViewDate);
   }
 
   private subscribeToMessages(): void {
