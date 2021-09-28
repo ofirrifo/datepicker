@@ -1,5 +1,33 @@
 <app-datepicker
   [disableDays]="disableDays"
-  [date]="date">
-
+  [date]="date" (datePickerReady)="dpApiService = $event">
 </app-datepicker>
+
+
+<button (click)="dpApiService.showToday()">
+  TODAY
+</button>
+
+<button (click)="dpApiService.unselectDate()">
+  Unselect
+</button>
+
+
+<button (click)="dpApiService.selectToday()">
+  Select Today
+</button>
+
+
+<button (click)="dpApiService.showSelected()">
+  Selected
+</button>
+
+
+
+<button (click)="dpApiService.showPreviousMonth()">
+  <
+</button>
+
+<button (click)="dpApiService.showNextMonth()">
+  >
+</button>

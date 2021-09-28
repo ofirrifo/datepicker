@@ -1,4 +1,4 @@
-import {Component, Input, OnDestroy, OnInit} from '@angular/core';
+import {AfterViewInit, Component, EventEmitter, Input, OnDestroy, OnInit, Output} from '@angular/core';
 import {DpMessagesService} from "../../services/dp-messages.service";
 import {DpStateService} from "../../services/dp-state.service";
 import {Subject} from "rxjs";
@@ -14,7 +14,7 @@ import {DpApiService} from "../../services/dp-api.service";
   styleUrls: ['./datepicker.component.scss'],
   providers: [DpMessagesService, DpStateService, DpApiService]
 })
-export class DatepickerComponent implements OnInit, OnDestroy {
+export class DatepickerComponent implements OnInit, OnDestroy, AfterViewInit {
   @Input() set disableDays(disableDays: (day: Dayjs) => boolean) {
     this.dpStateService.disableDays(disableDays);
   };
@@ -23,9 +23,11 @@ export class DatepickerComponent implements OnInit, OnDestroy {
     this.dpStateService.setSelected(dayjs(date));
   };
 
+  @Output() datePickerReady = new EventEmitter;
+
   private readonly destroy$ = new Subject();
 
-  constructor(public dpMessagesService: DpMessagesService, private dpStateService: DpStateService) {
+  constructor(public dpMessagesService: DpMessagesService, private dpStateService: DpStateService, private dpApiService: DpApiService) {
 
   }
 
@@ -38,6 +40,10 @@ export class DatepickerComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.destroy$.next();
     this.destroy$.complete();
+  }
+
+  ngAfterViewInit(): void {
+    this.datePickerReady.emit(this.dpApiService);
   }
 
 }
