@@ -26,6 +26,7 @@ export class DatepickerComponent implements OnInit, OnDestroy, AfterViewInit {
   @Output() datePickerReady = new EventEmitter;
 
   private readonly destroy$ = new Subject();
+  show$ = this.dpStateService.partialState$('isDatePickerMenuOpen');
 
   constructor(public dpMessagesService: DpMessagesService, private dpStateService: DpStateService, private dpApiService: DpApiService) {
 

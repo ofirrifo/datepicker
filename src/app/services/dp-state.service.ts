@@ -13,7 +13,8 @@ export class DpStateService {
     currentViewDate: dayjs().date(1),
     days: null,
     selected: null,
-    disableDays: null
+    disableDays: null,
+    isDatePickerMenuOpen: false
   };
   private readonly _state$ = new BehaviorSubject(this.state);
   public readonly state$ = this._state$.asObservable();
@@ -47,6 +48,11 @@ export class DpStateService {
 
   public disableDays(disableDays: (day: Dayjs) => boolean): void {
     this.state = cloneDeep({...this.state, disableDays});
+    this.emit();
+  }
+
+  public setIsDatePickerMenuOpen(isDatePickerMenuOpen: boolean): void {
+    this.state = cloneDeep({...this.state, isDatePickerMenuOpen});
     this.emit();
   }
 

@@ -6,4 +6,5 @@ export interface State {
   days: Day[];
   selected: Dayjs;
   disableDays: (day: Dayjs) => boolean;
+  isDatePickerMenuOpen: boolean;
 }
