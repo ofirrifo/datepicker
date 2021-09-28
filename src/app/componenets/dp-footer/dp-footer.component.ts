@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component} from '@angular/core';
 import {DpMessagesService} from "../../services/dp-messages.service";
 import {DpStateService} from "../../services/dp-state.service";
 
@@ -7,11 +7,6 @@ import {DpStateService} from "../../services/dp-state.service";
   templateUrl: './dp-footer.component.html',
   styleUrls: ['./dp-footer.component.scss']
 })
-export class DpFooterComponent implements OnInit {
-
+export class DpFooterComponent  {
   constructor(public dpMessagesService: DpMessagesService, private dpStateService: DpStateService) { }
-
-  ngOnInit(): void {
-  }
-
 }
