@@ -9,6 +9,7 @@ import {Observable, Subject} from "rxjs";
 import {DpStateService} from "../../services/dp-state.service";
 import {State} from "../../models/state.interface";
 import {Dayjs} from "dayjs";
+import {DpApiService} from "../../services/dp-api.service";
 
 @Component({
   selector: 'app-dp-days',
@@ -20,56 +21,38 @@ export class DpDaysComponent implements OnInit, OnDestroy {
   days$: Observable<Day[]> = this.dpStateService.partialState$('days') as Observable<Day[]>;
   selected$: Observable<Dayjs> = this.dpStateService.partialState$('selected') as Observable<Dayjs>;
   weekdays: string[] = DaysUtils.getWeekdays();
+  private readonly showPreviousMonth$ = this.dpMessagesService.message$([MessageTypes.ShowPreviousMonth]).pipe(takeUntil(this.destroy$));
+  private readonly showNextMonth$ = this.dpMessagesService.message$([MessageTypes.ShowNextMonth]).pipe(takeUntil(this.destroy$));
+  private readonly showToday$ = this.dpMessagesService.message$([MessageTypes.ShowToday]).pipe(takeUntil(this.destroy$));
+  private readonly unselectDate$ = this.dpMessagesService.message$([MessageTypes.UnselectDate]).pipe(takeUntil(this.destroy$));
+  private readonly selectToday$ = this.dpMessagesService.message$([MessageTypes.SelectToday]).pipe(takeUntil(this.destroy$));
+  private readonly showSelected$ = this.dpMessagesService.message$([MessageTypes.ShowSelected]).pipe(takeUntil(this.destroy$));
 
-
-  constructor(public dpMessagesService: DpMessagesService, private dpStateService: DpStateService) {
-
+  constructor(public dpMessagesService: DpMessagesService, private dpStateService: DpStateService, private dpApiService: DpApiService) {
   }
 
   ngOnInit(): void {
-    this.dpStateService.setDays(DaysUtils.getDays(this.dpStateService.getState().currentViewDate, this.dpStateService.getState().disableDays));
-    this.dpMessagesService.message$([MessageTypes.ShowPreviousMonth, MessageTypes.ShowNextMonth]).pipe(
-      takeUntil(this.destroy$)
-    ).subscribe((message: Message) => {
-      const date = message.type === MessageTypes.ShowPreviousMonth ? this.dpStateService.getState().currentViewDate.subtract(1, 'month') :
-        this.dpStateService.getState().currentViewDate.add(1, 'month');
-      this.dpStateService.setDays(DaysUtils.getDays(date, this.dpStateService.getState().disableDays));
-      this.dpStateService.setCurrentView(date);
-    });
+    this.initDays();
+    this.subscribeToMessages();
+  }
 
+  private initDays(): void {
+    const {disableDays, currentViewDate} = this.dpStateService.getState();
+    this.dpStateService.setDays(DaysUtils.getDays(disableDays, currentViewDate));
+  }
 
-    this.dpMessagesService.message$([MessageTypes.ShowToday]).pipe(
-      takeUntil(this.destroy$)
-    ).subscribe(() => {
-      this.dpStateService.setDays(DaysUtils.getDays(void 0, this.dpStateService.getState().disableDays));
-      this.dpStateService.setCurrentView(dayjs().date(1));
-    });
+  private subscribeToMessages(): void {
+    this.showPreviousMonth$.subscribe(() => this.dpApiService.showPreviousMonth());
 
+    this.showNextMonth$.subscribe(() => this.dpApiService.showNextMonth());
 
-    this.dpMessagesService.message$([MessageTypes.UnselectDate]).pipe(
-      takeUntil(this.destroy$)
-    ).subscribe(() => {
-      this.dpStateService.setSelected(void 0);
-    });
+    this.showToday$.subscribe(() => this.dpApiService.showToday());
 
+    this.unselectDate$.subscribe(() => this.dpApiService.unselectDate());
 
-    this.dpMessagesService.message$([MessageTypes.SelectToday]).pipe(
-      takeUntil(this.destroy$)
-    ).subscribe(() => {
-      this.dpStateService.setDays(DaysUtils.getDays(void 0, this.dpStateService.getState().disableDays));
-      this.dpStateService.setCurrentView(dayjs().date(1));
-      this.dpStateService.setSelected(dayjs());
-    });
+    this.selectToday$.subscribe(() => this.dpApiService.selectToday());
 
-    this.dpMessagesService.message$([MessageTypes.ShowSelected]).pipe(
-      takeUntil(this.destroy$)
-    ).subscribe(() => {
-      const selected = this.dpStateService.getState().selected;
-      if (selected) {
-        this.dpStateService.setDays(DaysUtils.getDays(this.dpStateService.getState().selected, this.dpStateService.getState().disableDays));
-        this.dpStateService.setCurrentView(this.dpStateService.getState().selected.date(1));
-      }
-    });
+    this.showSelected$.subscribe(() => this.dpApiService.showSelected());
   }
 
   ngOnDestroy() {

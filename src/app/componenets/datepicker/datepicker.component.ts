@@ -6,12 +6,13 @@ import {takeUntil} from "rxjs/operators";
 import {Message, MessageTypes} from "../../models/message.interface";
 import * as dayjs from "dayjs";
 import {Dayjs} from "dayjs";
+import {DpApiService} from "../../services/dp-api.service";
 
 @Component({
   selector: 'app-datepicker',
   templateUrl: './datepicker.component.html',
   styleUrls: ['./datepicker.component.scss'],
-  providers: [DpMessagesService, DpStateService]
+  providers: [DpMessagesService, DpStateService, DpApiService]
 })
 export class DatepickerComponent implements OnInit, OnDestroy {
   @Input() set disableDays(disableDays: (day: Dayjs) => boolean) {
