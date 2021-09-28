@@ -1,0 +1,15 @@
+<div class="ndp-cell ndp-not-hover" *ngFor="let weekday of weekdays">
+  <div class="ndp-weekday">{{weekday}}</div>
+</div>
+<div class="ndp-cell"
+     [class.ndp-not-hover]="day.isPrevMonthDay"
+     [class.ndp-disabled]="day.disabled"
+     [class.ndp-today]="day.isToday"
+     [class.ndp-selected]="(selected$ | async)?.isSame(day.date, 'date')"
+     *ngFor="let day of days$ | async"
+
+    (click)="dpMessagesService.selectedDateChanged(day.date)"
+>
+  <div class="ndp-day"
+  >{{day.value}}</div>
+</div>

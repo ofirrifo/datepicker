@@ -1,0 +1,57 @@
+:host {
+  display: grid;
+  grid-template-columns: 1fr 40px 40px;
+  grid-template-rows: 40px;
+
+  button {
+    background: white;
+    border: 0;
+    cursor: pointer;
+    position: relative;
+    color: rgba(0, 0, 0, .54);
+
+    &:hover {
+      &.ndp-previous, &.ndp-next {
+        background: rgba(0, 0, 0, .1);
+        border-radius: 50%;
+      }
+
+    }
+
+    &.ndp-calendar-period {
+      width: 100px;
+    }
+
+    &.ndp-previous {
+      &:after {
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        position: absolute;
+        content: "";
+        margin: 15.5px;
+        border: 0 solid currentColor;
+        border-top-width: 2px;
+        border-left-width: 2px;
+        transform: translateX(2px) rotate(-45deg);
+      }
+    }
+
+    &.ndp-next {
+      &::after {
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        position: absolute;
+        content: "";
+        margin: 15.5px;
+        border: 0 solid currentColor;
+        border-top-width: 2px;
+        border-right-width: 2px;
+        transform: translateX(-2px) rotate(45deg);
+      }
+    }
+  }
+}
