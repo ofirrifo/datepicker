@@ -8,7 +8,7 @@ import * as dayjs from "dayjs";
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  date = dayjs().add(2, 'month').add(1, 'day').toISOString();
+  date = dayjs().toISOString();
 
   disableDays: (day: Dayjs) => boolean = (day: Dayjs) => {
     return day.isBefore(dayjs().subtract(1, 'month')) ||

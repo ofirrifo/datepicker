@@ -35,6 +35,11 @@ export class DpStateService {
     this.emit();
   }
 
+  setDaysAndCurrentView(days: Day[], currentViewDate: Dayjs): void {
+    this.setDays(days);
+    this.setCurrentView(currentViewDate);
+  }
+
   setSelected(selected: Dayjs): void {
     this.state = cloneDeep({...this.state, selected});
     this.emit();
