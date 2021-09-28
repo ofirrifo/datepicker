@@ -25,32 +25,32 @@ export class DpStateService {
     this._state$.next(cloneDeep(this.state));
   }
 
-  setCurrentView(currentViewDate: Dayjs): void {
+  private setCurrentView(currentViewDate: Dayjs): void {
     this.state = cloneDeep({...this.state, currentViewDate});
     this.emit();
   }
 
-  setDays(days: Day[]): void {
+  private setDays(days: Day[]): void {
     this.state = cloneDeep({...this.state, days});
     this.emit();
   }
 
-  setDaysAndCurrentView(days: Day[], currentViewDate: Dayjs): void {
+  public setDaysAndCurrentView(days: Day[], currentViewDate: Dayjs): void {
     this.setDays(days);
     this.setCurrentView(currentViewDate);
   }
 
-  setSelected(selected: Dayjs): void {
+  public setSelected(selected: Dayjs): void {
     this.state = cloneDeep({...this.state, selected});
     this.emit();
   }
 
-  disableDays(disableDays: (day: Dayjs) => boolean): void {
+  public disableDays(disableDays: (day: Dayjs) => boolean): void {
     this.state = cloneDeep({...this.state, disableDays});
     this.emit();
   }
 
-  getState(): State {
+  public getState(): State {
     return cloneDeep(this.state);
   }
 
