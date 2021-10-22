@@ -19,8 +19,8 @@ export class DatepickerComponent implements OnInit, OnDestroy, AfterViewInit {
     this.dpStateService.disableDays(disableDays);
   }
 
-  @Input() set date(date: string) {
-    this.dpStateService.setSelected(dayjs(date));
+  @Input() set date(dateAsISOString: string) {
+    this.dpStateService.setSelected(dayjs(dateAsISOString));
   }
 
   @Output() datePickerReady = new EventEmitter;
