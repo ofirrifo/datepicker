@@ -4,7 +4,7 @@ import {Dayjs} from "dayjs";
 import {isFunction} from "lodash";
 
 export class DaysUtils {
-  static getDays(disableDays: (day: Dayjs) => boolean, date: any = dayjs()): Day[] {
+  static getDays(disableDays: (day: Dayjs) => boolean, date: Dayjs = dayjs()): Day[] {
     date = date.date(1);
     const days: Day[] = [];
     for (let i = 1; i < date.day() + 1; i++) {
@@ -29,7 +29,7 @@ export class DaysUtils {
     return days;
   }
 
-  static getWeekdays() {
+  static getWeekdays(): string[] {
     return ["S", "M", "T", "W", "T", "F", "S"]
   }
 }

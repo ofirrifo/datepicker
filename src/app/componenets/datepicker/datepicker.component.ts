@@ -17,11 +17,11 @@ import {DpApiService} from "../../services/dp-api.service";
 export class DatepickerComponent implements OnInit, OnDestroy, AfterViewInit {
   @Input() set disableDays(disableDays: (day: Dayjs) => boolean) {
     this.dpStateService.disableDays(disableDays);
-  };
+  }
 
   @Input() set date(date) {
     this.dpStateService.setSelected(dayjs(date));
-  };
+  }
 
   @Output() datePickerReady = new EventEmitter;
 
