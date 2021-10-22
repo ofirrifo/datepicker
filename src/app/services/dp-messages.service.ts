@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Subject} from "rxjs";
+import {Observable, Subject} from "rxjs";
 import {Message, MessageTypes} from "../models/message.interface";
 import {Dayjs} from "dayjs";
 import {filter} from "rxjs/operators";
@@ -7,7 +7,7 @@ import {filter} from "rxjs/operators";
 @Injectable()
 export class DpMessagesService {
   private _message$: Subject<Message> = new Subject();
-  public readonly message$ = (types: MessageTypes[]) => this._message$.asObservable()
+  public readonly message$ = (types: MessageTypes[]): Observable<Message> => this._message$.asObservable()
     .pipe(filter((message: Message) => types.indexOf(message.type) > -1));
 
   emit(message: Message): void {

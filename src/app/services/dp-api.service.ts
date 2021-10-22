@@ -51,7 +51,7 @@ export class DpApiService {
     this.dpStateService.setDaysAndCurrentView(days, date);
   }
 
-  public toggleDatepickerMenu() {
+  public toggleDatepickerMenu(): void {
     const {isDatePickerMenuOpen} = this.dpStateService.getState();
     this.dpStateService.setIsDatePickerMenuOpen(!isDatePickerMenuOpen);
   }

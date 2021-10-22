@@ -19,7 +19,7 @@ export class DatepickerComponent implements OnInit, OnDestroy, AfterViewInit {
     this.dpStateService.disableDays(disableDays);
   }
 
-  @Input() set date(date) {
+  @Input() set date(date: string) {
     this.dpStateService.setSelected(dayjs(date));
   }
 
@@ -38,7 +38,7 @@ export class DatepickerComponent implements OnInit, OnDestroy, AfterViewInit {
     });
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     this.destroy$.next();
     this.destroy$.complete();
   }

@@ -1,14 +1,12 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Day} from "../../models/day.interface";
 import {DaysUtils} from "../../utils/days.utils";
-import * as dayjs from "dayjs";
+import {Dayjs} from "dayjs";
 import {DpMessagesService} from "../../services/dp-messages.service";
-import {filter, map, takeUntil} from "rxjs/operators";
-import {Message, MessageTypes} from "../../models/message.interface";
+import {takeUntil} from "rxjs/operators";
+import {MessageTypes} from "../../models/message.interface";
 import {Observable, Subject} from "rxjs";
 import {DpStateService} from "../../services/dp-state.service";
-import {State} from "../../models/state.interface";
-import {Dayjs} from "dayjs";
 import {DpApiService} from "../../services/dp-api.service";
 
 @Component({
@@ -57,7 +55,7 @@ export class DpDaysComponent implements OnInit, OnDestroy {
     this.showSelected$.subscribe(() => this.dpApiService.showSelected());
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     this.destroy$.next();
     this.destroy$.complete();
   }

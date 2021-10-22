@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {BehaviorSubject} from "rxjs";
+import {BehaviorSubject, Observable} from "rxjs";
 import {State} from "../models/state.interface";
 import * as dayjs from "dayjs";
 import {Dayjs} from "dayjs";
@@ -18,7 +18,7 @@ export class DpStateService {
   };
   private readonly _state$ = new BehaviorSubject(this.state);
   public readonly state$ = this._state$.asObservable();
-  public readonly partialState$ = (key: keyof State) => this._state$.asObservable().pipe(map((state: State) => {
+  public readonly partialState$ = (key: keyof State): Observable<any> => this._state$.asObservable().pipe(map((state: State) => {
     return state[key];
   }), distinctUntilChanged());
 
