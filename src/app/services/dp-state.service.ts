@@ -18,7 +18,7 @@ export class DpStateService {
   };
   private readonly _state$ = new BehaviorSubject(this.state);
   public readonly state$ = this._state$.asObservable();
-  public readonly partialState$ = (key: keyof State): Observable<any> => this._state$.asObservable().pipe(map((state: State) => {
+  public readonly partialState$ = (key: keyof State): Observable<State[keyof State]> => this._state$.asObservable().pipe(map((state: State) => {
     return state[key];
   }), distinctUntilChanged());
 
