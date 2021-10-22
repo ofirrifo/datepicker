@@ -30,6 +30,6 @@ export class DaysUtils {
   }
 
   static getWeekdays(): string[] {
-    return ["S", "M", "T", "W", "T", "F", "S"]
+    return ["S", "M", "T", "W", "T", "F", "S"];
   }
 }
