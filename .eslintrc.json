@@ -1,5 +1,6 @@
 {
   "root": true,
+  "plugins": ["unused-imports", "rxjs"],
   "ignorePatterns": [
     "projects/**/*"
   ],
