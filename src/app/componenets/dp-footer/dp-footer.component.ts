@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
-import {DpMessagesService} from "../../services/dp-messages.service";
-import {DpStateService} from "../../services/dp-state.service";
+import {DpMessagesService} from '../../services/dp-messages.service';
+import {DpStateService} from '../../services/dp-state.service';
 
 @Component({
   selector: 'app-dp-footer',

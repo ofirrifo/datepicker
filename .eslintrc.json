@@ -39,7 +39,9 @@
             "style": "kebab-case"
           }
         ],
-        "semi": ["error", "always"],
+        "@typescript-eslint/semi": ["error", "always"],
+        "@typescript-eslint/no-useless-constructor": ["error"],
+        "@typescript-eslint/quotes": ["error", "single"],
         "@typescript-eslint/no-explicit-any": "off",
 
         "rxjs/no-async-subscribe": ["error"],

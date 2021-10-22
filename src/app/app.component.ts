@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
-import {Dayjs} from "dayjs";
-import * as dayjs from "dayjs";
-import {DpApiService} from "./services/dp-api.service";
+import {Dayjs} from 'dayjs';
+import * as dayjs from 'dayjs';
+import {DpApiService} from './services/dp-api.service';
 
 @Component({
   selector: 'app-root',
@@ -15,5 +15,5 @@ export class AppComponent {
   disableDays: (day: Dayjs) => boolean = (day: Dayjs) => {
     return day.isBefore(dayjs().subtract(1, 'month')) ||
       day.isAfter(dayjs().add(1, 'month'));
-  }
+  };
 }

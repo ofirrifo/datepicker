@@ -1,11 +1,11 @@
 import {Injectable} from '@angular/core';
-import {BehaviorSubject, Observable} from "rxjs";
-import {State} from "../models/state.interface";
-import * as dayjs from "dayjs";
-import {Dayjs} from "dayjs";
-import {distinctUntilChanged, map} from "rxjs/operators";
-import {cloneDeep} from "lodash";
-import {Day} from "../models/day.interface";
+import {BehaviorSubject, Observable} from 'rxjs';
+import {State} from '../models/state.interface';
+import * as dayjs from 'dayjs';
+import {Dayjs} from 'dayjs';
+import {distinctUntilChanged, map} from 'rxjs/operators';
+import {cloneDeep} from 'lodash';
+import {Day} from '../models/day.interface';
 
 @Injectable()
 export class DpStateService {

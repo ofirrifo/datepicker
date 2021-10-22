@@ -1,5 +1,5 @@
-import {Dayjs} from "dayjs";
-import {Day} from "./day.interface";
+import {Dayjs} from 'dayjs';
+import {Day} from './day.interface';
 
 export interface State {
   currentViewDate: Dayjs;

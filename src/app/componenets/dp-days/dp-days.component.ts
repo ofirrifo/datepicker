@@ -1,13 +1,13 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {Day} from "../../models/day.interface";
-import {DaysUtils} from "../../utils/days.utils";
-import {Dayjs} from "dayjs";
-import {DpMessagesService} from "../../services/dp-messages.service";
-import {takeUntil} from "rxjs/operators";
-import {MessageTypes} from "../../models/message.interface";
-import {Observable, Subject} from "rxjs";
-import {DpStateService} from "../../services/dp-state.service";
-import {DpApiService} from "../../services/dp-api.service";
+import {Day} from '../../models/day.interface';
+import {DaysUtils} from '../../utils/days.utils';
+import {Dayjs} from 'dayjs';
+import {DpMessagesService} from '../../services/dp-messages.service';
+import {takeUntil} from 'rxjs/operators';
+import {MessageTypes} from '../../models/message.interface';
+import {Observable, Subject} from 'rxjs';
+import {DpStateService} from '../../services/dp-state.service';
+import {DpApiService} from '../../services/dp-api.service';
 
 @Component({
   selector: 'app-dp-days',

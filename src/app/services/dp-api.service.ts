@@ -1,8 +1,8 @@
 import {Injectable} from '@angular/core';
-import {DpStateService} from "./dp-state.service";
-import {DaysUtils} from "../utils/days.utils";
-import * as dayjs from "dayjs";
-import {Day} from "../models/day.interface";
+import {DpStateService} from './dp-state.service';
+import {DaysUtils} from '../utils/days.utils';
+import * as dayjs from 'dayjs';
+import {Day} from '../models/day.interface';
 
 @Injectable({
   providedIn: 'root'

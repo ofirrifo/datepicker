@@ -1,7 +1,7 @@
-import {Day} from "../models/day.interface";
-import * as dayjs from "dayjs";
-import {Dayjs} from "dayjs";
-import {isFunction} from "lodash";
+import {Day} from '../models/day.interface';
+import * as dayjs from 'dayjs';
+import {Dayjs} from 'dayjs';
+import {isFunction} from 'lodash';
 
 export class DaysUtils {
   static getDays(disableDays: (day: Dayjs) => boolean, date: Dayjs = dayjs()): Day[] {
@@ -30,6 +30,6 @@ export class DaysUtils {
   }
 
   static getWeekdays(): string[] {
-    return ["S", "M", "T", "W", "T", "F", "S"];
+    return ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
   }
 }
