@@ -10,14 +10,6 @@
     position: relative;
     color: rgb(0 0 0 / 54%);
 
-    &:hover {
-      &.ndp-previous,
-      &.ndp-next {
-        background: rgb(0 0 0 / 10%);
-        border-radius: 50%;
-      }
-    }
-
     &.ndp-calendar-period {
       width: 100px;
     }
@@ -51,6 +43,14 @@
         border-top-width: 2px;
         border-right-width: 2px;
         transform: translateX(-2px) rotate(45deg);
+      }
+    }
+
+    &:hover {
+      &.ndp-previous,
+      &.ndp-next {
+        background: rgb(0 0 0 / 10%);
+        border-radius: 50%;
       }
     }
   }
