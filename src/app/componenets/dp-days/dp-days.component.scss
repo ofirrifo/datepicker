@@ -29,17 +29,17 @@
 
     &.ndp-today {
       .ndp-day {
-        border: 1px solid #3f51b5;
+        border: 1px solid  var(--ndp-blue);
         border-radius: 50%;
-        box-shadow: inset 0 0 0 1px #fff;
+        box-shadow: inset 0 0 0 1px var(--ndp-white);
       }
     }
 
     &.ndp-selected {
       .ndp-day {
-        background: #3f51b5;
+        background: var(--ndp-blue);
         border-radius: 50%;
-        color: white;
+        color: var(--ndp-white);
       }
     }
 
