@@ -1,11 +1,12 @@
 /* You can ad{d global styles to this file, and also import other style files */
-[class^=ndp-] {
+[class^="ndp-"] {
   box-sizing: border-box;
   font-family: Roboto, Helvetica Neue, sans-serif;
   font-size: 13px;
-  color: rgba(0, 0, 0, .87);
+  color: rgb(0 0 0 / 87%);
 
-  &:before, &:after {
+  &::before,
+  &::after {
     box-sizing: border-box;
   }
 }

@@ -8,14 +8,14 @@
     border: 0;
     cursor: pointer;
     position: relative;
-    color: rgba(0, 0, 0, .54);
+    color: rgb(0 0 0 / 54%);
 
     &:hover {
-      &.ndp-previous, &.ndp-next {
-        background: rgba(0, 0, 0, .1);
+      &.ndp-previous,
+      &.ndp-next {
+        background: rgb(0 0 0 / 10%);
         border-radius: 50%;
       }
-
     }
 
     &.ndp-calendar-period {
@@ -23,7 +23,7 @@
     }
 
     &.ndp-previous {
-      &:after {
+      &::after {
         top: 0;
         left: 0;
         right: 0;
