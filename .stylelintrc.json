@@ -1,3 +1,8 @@
 {
-  "extends": "stylelint-config-standard-scss"
+  "extends": "stylelint-config-standard-scss",
+  "rules": {
+    "color-no-hex": true,
+    "function-disallowed-list": ["/^rgb/", "/^rgba/", "/^hsl"],
+    "color-named": "never"
+  }
 }
