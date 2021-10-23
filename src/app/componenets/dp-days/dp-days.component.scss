@@ -12,31 +12,6 @@
     aspect-ratio: 1/1;
     cursor: pointer;
 
-    &.ndp-disabled {
-      cursor: auto;
-      pointer-events: none;
-
-      .ndp-day {
-        color: rgb(0 0 0 / 38%);
-      }
-    }
-
-    &.ndp-selected {
-      .ndp-day {
-        background: #3f51b5;
-        border-radius: 50%;
-        color: white;
-      }
-    }
-
-    &.ndp-today {
-      .ndp-day {
-        border: 1px solid #3f51b5;
-        border-radius: 50%;
-        box-shadow: inset 0 0 0 1px #fff;
-      }
-    }
-
     .ndp-day,
     .ndp-weekday {
       display: grid;
@@ -50,6 +25,31 @@
       border-bottom: 1px solid rgb(0 0 0 / 12%);
       font-size: 11px;
       font-weight: 400;
+    }
+
+    &.ndp-today {
+      .ndp-day {
+        border: 1px solid #3f51b5;
+        border-radius: 50%;
+        box-shadow: inset 0 0 0 1px #fff;
+      }
+    }
+
+    &.ndp-selected {
+      .ndp-day {
+        background: #3f51b5;
+        border-radius: 50%;
+        color: white;
+      }
+    }
+
+    &.ndp-disabled {
+      cursor: auto;
+      pointer-events: none;
+
+      .ndp-day {
+        color: rgb(0 0 0 / 38%);
+      }
     }
 
     &:hover:not(.ndp-not-hover):not(.ndp-disabled) {
