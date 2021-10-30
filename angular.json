@@ -117,6 +117,30 @@
     },
     "dp": {
       "projectType": "library",
+      "schematics": {
+        "@schematics/angular:component": {
+          "displayBlock": true,
+          "viewEncapsulation": "None",
+          "changeDetection": "OnPush",
+          "prefix": "ndp",
+          "style": "scss",
+          "skipTests": true,
+          "lintFix": true
+        },
+        "@schematics/angular:directive": {
+          "prefix": "ndp",
+          "skipTests": true,
+          "lintFix": true
+        },
+        "@schematics/angular:pipe": {
+          "skipTests": true,
+          "lintFix": true
+        },
+        "@schematics/angular:service": {
+          "skipTests": true,
+          "lintFix": true
+        }
+      },
       "root": "projects/dp",
       "sourceRoot": "projects/dp/src",
       "prefix": "dp",
