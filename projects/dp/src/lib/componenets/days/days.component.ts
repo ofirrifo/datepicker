@@ -13,7 +13,7 @@ import {DpApiService} from '../../services/dp-api.service';
   selector: 'dp-days',
   templateUrl: './days.component.html',
   styleUrls: ['./days.component.scss'],
-  encapsulation: ViewEncapsulation.Emulated,
+  encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DaysComponent implements OnInit, OnDestroy {

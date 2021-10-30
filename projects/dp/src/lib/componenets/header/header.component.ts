@@ -8,7 +8,7 @@ import {DpStateService} from '../../services/dp-state.service';
   selector: 'dp-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
-  encapsulation: ViewEncapsulation.Emulated,
+  encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HeaderComponent {

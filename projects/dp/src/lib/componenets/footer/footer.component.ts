@@ -5,7 +5,7 @@ import {DpMessagesService} from '../../services/dp-messages.service';
   selector: 'dp-footer',
   templateUrl: './footer.component.html',
   styleUrls: ['./footer.component.scss'],
-  encapsulation: ViewEncapsulation.Emulated,
+  encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FooterComponent  {
