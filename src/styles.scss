@@ -1,6 +1,8 @@
-@use "_color.scss.css";
+dp-datepicker {
+  --ndp-blue: #3f51b5;
+  --ndp-white: #ffffff;
+}
 
-/* You can ad{d global styles to this file, and also import other style files */
 [class^="ndp-"] {
   box-sizing: border-box;
   font-family: Roboto, "Helvetica Neue", sans-serif;

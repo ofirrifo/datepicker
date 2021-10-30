@@ -21,7 +21,7 @@ import {Message, MessageTypes} from '../models/message.interface';
   templateUrl: './datepicker.component.html',
   styleUrls: ['./datepicker.component.scss'],
   providers: [DpMessagesService, DpStateService, DpApiService],
-  encapsulation: ViewEncapsulation.Emulated,
+  encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DatepickerComponent implements OnInit, OnDestroy, AfterViewInit {
