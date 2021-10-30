@@ -8,7 +8,7 @@
      [class.ndp-selected]="(selected$ | async)?.isSame(day.date, 'date')"
      *ngFor="let day of days$ | async"
 
-    (click)="dpMessagesService.selectedDateChanged(day.date)"
+     (click)="dpMessagesService.selectedDateChanged(day.date)"
 >
   <div class="ndp-day"
   >{{day.value}}</div>

@@ -124,21 +124,18 @@
           "changeDetection": "OnPush",
           "prefix": "dp",
           "style": "scss",
-          "skipTests": true,
-          "lintFix": true
+          "skipTests": true
         },
         "@schematics/angular:directive": {
           "prefix": "dp",
-          "skipTests": true,
-          "lintFix": true
+          "skipTests": true
+
         },
         "@schematics/angular:pipe": {
-          "skipTests": true,
-          "lintFix": true
+          "skipTests": true
         },
         "@schematics/angular:service": {
-          "skipTests": true,
-          "lintFix": true
+          "skipTests": true
         }
       },
       "root": "projects/dp",

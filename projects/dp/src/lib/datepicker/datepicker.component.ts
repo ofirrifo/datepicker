@@ -10,17 +10,18 @@ import {
 import {Dayjs} from 'dayjs';
 import * as dayjs from 'dayjs';
 import {Subject} from 'rxjs';
-import {DpMessagesService} from '../../../../../src/app/services/dp-messages.service';
-import {DpStateService} from '../../../../../src/app/services/dp-state.service';
-import {DpApiService} from '../../../../../src/app/services/dp-api.service';
-import {Message, MessageTypes} from '../../../../../src/app/models/message.interface';
 import {takeUntil} from 'rxjs/operators';
+import {DpMessagesService} from '../services/dp-messages.service';
+import {DpStateService} from '../services/dp-state.service';
+import {DpApiService} from '../services/dp-api.service';
+import {Message, MessageTypes} from '../models/message.interface';
 
 @Component({
   selector: 'dp-datepicker',
   templateUrl: './datepicker.component.html',
   styleUrls: ['./datepicker.component.scss'],
-  encapsulation: ViewEncapsulation.None,
+  providers: [DpMessagesService, DpStateService, DpApiService],
+  encapsulation: ViewEncapsulation.Emulated,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DatepickerComponent implements OnInit, OnDestroy, AfterViewInit {

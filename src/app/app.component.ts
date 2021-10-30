@@ -1,7 +1,8 @@
 import {Component} from '@angular/core';
 import {Dayjs} from 'dayjs';
 import * as dayjs from 'dayjs';
-import {DpApiService} from './services/dp-api.service';
+import {DpApiService} from '../../projects/dp/src/lib/services/dp-api.service';
+
 
 @Component({
   selector: 'app-root',

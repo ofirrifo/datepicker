@@ -1,8 +1,8 @@
-<app-datepicker
+<dp-datepicker
   [disableDays]="disableDays"
   [date]="date" (datePickerReady)="dpApiService = $event">
   <button (click)="dpApiService.toggleDatepickerMenu()">Open</button>
-</app-datepicker>
+</dp-datepicker>
 
 
 <!--<button (click)="dpApiService.showToday()">-->

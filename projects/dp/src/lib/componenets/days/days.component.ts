@@ -1,20 +1,22 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
-import {Day} from '../../models/day.interface';
-import {DaysUtils} from '../../utils/days.utils';
-import {Dayjs} from 'dayjs';
-import {DpMessagesService} from '../../services/dp-messages.service';
-import {takeUntil} from 'rxjs/operators';
-import {MessageTypes} from '../../models/message.interface';
+import {Component, OnInit, ViewEncapsulation, ChangeDetectionStrategy, OnDestroy} from '@angular/core';
 import {Observable, Subject} from 'rxjs';
+import {Dayjs} from 'dayjs';
+import {takeUntil} from 'rxjs/operators';
+import { Day } from '../../models/day.interface';
+import {DaysUtils} from '../../utils/days.utils';
+import {MessageTypes} from '../../models/message.interface';
+import {DpMessagesService} from '../../services/dp-messages.service';
 import {DpStateService} from '../../services/dp-state.service';
 import {DpApiService} from '../../services/dp-api.service';
 
 @Component({
-  selector: 'app-dp-days',
-  templateUrl: './dp-days.component.html',
-  styleUrls: ['./dp-days.component.scss']
+  selector: 'dp-days',
+  templateUrl: './days.component.html',
+  styleUrls: ['./days.component.scss'],
+  encapsulation: ViewEncapsulation.Emulated,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class DpDaysComponent implements OnInit, OnDestroy {
+export class DaysComponent implements OnInit, OnDestroy {
   private readonly destroy$ = new Subject();
   days$: Observable<Day[]> = this.dpStateService.partialState$('days') as Observable<Day[]>;
   selected$: Observable<Dayjs> = this.dpStateService.partialState$('selected') as Observable<Dayjs>;
