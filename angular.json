@@ -122,13 +122,13 @@
           "displayBlock": true,
           "viewEncapsulation": "None",
           "changeDetection": "OnPush",
-          "prefix": "ndp",
+          "prefix": "dp",
           "style": "scss",
           "skipTests": true,
           "lintFix": true
         },
         "@schematics/angular:directive": {
-          "prefix": "ndp",
+          "prefix": "dp",
           "skipTests": true,
           "lintFix": true
         },
