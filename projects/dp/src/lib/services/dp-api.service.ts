@@ -4,9 +4,7 @@ import {DaysUtils} from '../utils/days.utils';
 import * as dayjs from 'dayjs';
 import {Day} from '../models/day.interface';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class DpApiService {
 
   constructor(private dpStateService: DpStateService) {
